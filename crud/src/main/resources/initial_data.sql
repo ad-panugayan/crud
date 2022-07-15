@@ -1,0 +1,1 @@
+INSERT INTO SMPL.DRIVERS VALUES (1,1,'John'),(2,1,'Jane');

@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MSSQLServer;INIT=CREATE SCHEMA IF NOT EXISTS smpl
+    username: sa
+    password:
+    data: classpath:initial_data.sql
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console.enabled: true
