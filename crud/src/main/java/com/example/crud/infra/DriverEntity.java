@@ -5,7 +5,6 @@ import lombok.*;
 import javax.persistence.*;
 
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -17,9 +16,11 @@ public class DriverEntity {
     @Column(name = "Id")
     private Integer id;
 
+    @Setter
     @Column(name = "Name")
     private String name;
 
+    @Setter
     @Column(name = "CarId")
     private Integer carId;
 }
