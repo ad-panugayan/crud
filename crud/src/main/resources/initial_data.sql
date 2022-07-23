@@ -1,3 +1,7 @@
 USE testdb;
 
-INSERT INTO smpl.DRIVERS VALUES (1,1,'John'),(2,1,'Jane');
+INSERT INTO smpl.DRIVERS (Name) VALUES ('Sheila'),('Mae');
+INSERT INTO smpl.CARS (Plate_Number, Driver_Id) VALUES ('ABG 7677', 1),('XEX 534', 1),('VEL 1111', 2);
+
+SELECT * FROM SMPL.DRIVERS;
+SELECT * FROM SMPL.CARS;

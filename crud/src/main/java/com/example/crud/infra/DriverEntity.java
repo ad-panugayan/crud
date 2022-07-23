@@ -1,18 +1,20 @@
 package com.example.crud.infra;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Entity
 @Table(schema = "smpl", name = "Drivers")
 public class DriverEntity {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Integer id;
 
@@ -21,6 +23,8 @@ public class DriverEntity {
     private String name;
 
     @Setter
-    @Column(name = "CarId")
-    private Integer carId;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "driverEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<CarEntity> carEntities;
+
 }

@@ -1,5 +1,6 @@
 package com.example.crud.controller;
 
+import com.example.crud.infra.CarEntity;
 import com.example.crud.infra.DriverEntity;
 import com.example.crud.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,13 @@ import java.util.List;
 
 @RestController
 public class DriverController {
+
+    private final DriverService driverService;
+
     @Autowired
-    private DriverService driverService;
+    public DriverController(DriverService driverService) {
+        this.driverService = driverService;
+    }
 
     @GetMapping(path = "/drivers", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<DriverEntity>> getDrivers() {
@@ -29,6 +35,11 @@ public class DriverController {
     public ResponseEntity<DriverEntity> updateDriver(@PathVariable Integer id, @RequestBody DriverEntity driverEntity) {
         return ResponseEntity.ok(driverService.updateDriver(id, driverEntity));
     }
+
+//    @PutMapping(path = "/drivers/{id}/add-car", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<DriverEntity> addCar(@PathVariable Integer id, @RequestBody CarEntity carEntity) {
+//
+//    }
 
     @DeleteMapping(path = "/drivers/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<HttpStatus> deleteDriver(@PathVariable Integer id) {
