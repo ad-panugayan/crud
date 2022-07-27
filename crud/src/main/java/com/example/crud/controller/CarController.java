@@ -4,6 +4,7 @@ import com.example.crud.infra.CarEntity;
 import com.example.crud.service.CarService;
 import com.example.crud.service.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class CarController {
     private final CarService carService;
 
     @Autowired
-    private CarController(CarService carService) {
+    private CarController(@Qualifier("localCarService") CarService carService) {
         this.carService = carService;
     }
 

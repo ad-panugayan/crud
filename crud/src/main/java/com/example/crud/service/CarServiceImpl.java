@@ -3,11 +3,9 @@ package com.example.crud.service;
 import com.example.crud.infra.CarEntity;
 import com.example.crud.infra.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public class CarServiceImpl implements CarService {
 
     private final CarRepository carRepository;
